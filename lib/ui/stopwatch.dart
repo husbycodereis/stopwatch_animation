@@ -13,7 +13,7 @@ class Stopwatch extends StatefulWidget {
 
 class _StopwatchState extends State<Stopwatch>
     with SingleTickerProviderStateMixin {
-  //late makes a variable non nullable for later use because that is going to be initialized in somewhere else
+  //late makes a variable non nullable for later use because it is going to be initialized in somewhere else
   //late DateTime _initialTime;
   Duration _previouslyElapsed = Duration.zero;
   Duration _currentlyElapsed = Duration.zero;
@@ -21,6 +21,7 @@ class _StopwatchState extends State<Stopwatch>
   Duration _previouslyLapElapsed = Duration.zero;
   Duration get _elapsed => _previouslyElapsed + _currentlyElapsed;
   Duration get _lapElapsed => _previouslyLapElapsed + _currentlyLapElapsed;
+  int lapCount = 0;
 
   late final Ticker _ticker;
 
@@ -68,7 +69,8 @@ class _StopwatchState extends State<Stopwatch>
   void _lapCounter() {
     setState(() {
       if (_isRunning) {
-        _lapProvider!.setLapDuration(_currentlyLapElapsed);
+        lapCount++;
+        _lapProvider!.setLapDuration(_currentlyLapElapsed, lapCount);
         _ticker.stop();
         _currentlyLapElapsed = Duration.zero;
         _previouslyLapElapsed = Duration.zero;

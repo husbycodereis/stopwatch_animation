@@ -5,13 +5,13 @@ import 'package:stopwatch_flutter/model/laptime_model.dart';
 class LapProvider extends ChangeNotifier {
   List<LapTime> lapList = [];
 
-  void setLapDuration(Duration duration) {
-    //lapList.where((element) => element.duration < duration)
-    lapList.add(LapTime(duration: duration));
+  void setLapDuration(Duration duration, int lapCount) {
+    lapList.add(LapTime(duration: duration, index: lapCount));
     if (lapList.length > 1) {
       List<LapTime> lapListCopy = lapList;
       calculateLongest(lapListCopy);
       calculateShortest(lapListCopy);
+      lapList.sort((a, b) => a.index.compareTo(b.index));
     }
     notifyListeners();
   }
@@ -22,7 +22,7 @@ class LapProvider extends ChangeNotifier {
   }
 
   void calculateLongest(List<LapTime> lapListCopy) {
-    lapListCopy.sort((a, b) => a.duration!.compareTo(b.duration!));
+    lapListCopy.sort((a, b) => a.duration.compareTo(b.duration));
     //print(lapListCopy.last.duration);
     lapList.forEach((element) => element.isLongest = false);
     lapList
@@ -31,7 +31,7 @@ class LapProvider extends ChangeNotifier {
   }
 
   void calculateShortest(List<LapTime> lapListCopy) {
-    lapListCopy.sort((a, b) => a.duration!.compareTo(b.duration!));
+    lapListCopy.sort((a, b) => a.duration.compareTo(b.duration));
     //print(lapListCopy.first.duration);
     lapList.forEach((element) => element.isShortest = false);
     lapList
