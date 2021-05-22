@@ -12,4 +12,4 @@ What I learned;
 
 ![](https://media.giphy.com/media/AFZPbB3xKNdpVBmuAW/giphy.gif)
 
-[course link](https://codewithandrea.com/courses/flutter-animations-masterclass/)
+[course link](https://media.giphy.com/media/swLqiSeUzwJnCEswc0/giphy.gif)
