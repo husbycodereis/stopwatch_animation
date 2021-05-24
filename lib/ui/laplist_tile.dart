@@ -13,7 +13,15 @@ class LapListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text('Lap ${index + 1}'),
+      title: Text(
+        'Lap ${index + 1}',
+        style: TextStyle(
+            color: lapTime.isLongest
+                ? Colors.red
+                : lapTime.isShortest
+                    ? Colors.green
+                    : Colors.white),
+      ),
       trailing: Text(
         lapTime.duration.toString().substring(2, 10),
         style: TextStyle(

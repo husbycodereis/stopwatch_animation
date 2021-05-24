@@ -44,6 +44,14 @@ class StopwatchRenderer extends StatelessWidget {
               handLength: radius / 4,
               color: Colors.orange),
         ),
+        Positioned(
+          left: radius,
+          top: radius / 1.8,
+          child: MinuteClockHandCircle(
+              handThickness: 2,
+              handLength: radius / 4,
+              color: Colors.orange),
+        ),
         //!seconds counter
         for (var i = 0; i < 300; i++)
           Positioned(
@@ -59,22 +67,52 @@ class StopwatchRenderer extends StatelessWidget {
         Positioned(
           left: radius,
           top: radius,
-          child: ClockHand(
+          child: SecondsClockHand(
               rotationZAngle: pi + (2 * pi / 60000) * lapElapsed.inMilliseconds,
               handThickness: 2,
               handLength: radius,
               color: Colors.blue),
         ),
+        Positioned(
+          left: radius,
+          top: radius,
+          child: SecondsClockHandElongate(
+              rotationZAngle: (2 * pi / 60000) * lapElapsed.inMilliseconds,
+              handThickness: 2,
+              handLength: radius / 8,
+              color: Colors.blue),
+        ),
+        Positioned(
+            left: radius,
+            top: radius,
+            child: SecondsClockHandCircle(
+              color: Colors.blue,
+            )),
         //?total time clockhand
         Positioned(
           left: radius,
           top: radius,
-          child: ClockHand(
+          child: SecondsClockHand(
               rotationZAngle: pi + (2 * pi / 60000) * elapsed.inMilliseconds,
               handThickness: 2,
               handLength: radius,
               color: Colors.orange),
         ),
+        Positioned(
+          left: radius,
+          top: radius,
+          child: SecondsClockHandElongate(
+              rotationZAngle: (2 * pi / 60000) * elapsed.inMilliseconds,
+              handThickness: 2,
+              handLength: radius / 8,
+              color: Colors.orange),
+        ),
+        Positioned(
+            left: radius,
+            top: radius,
+            child: SecondsClockHandCircle(
+              color: Colors.orange,
+            )),
         Positioned(
           left: 0,
           right: 0,
