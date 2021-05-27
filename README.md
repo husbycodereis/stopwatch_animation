@@ -1,6 +1,6 @@
 # stopwatch_flutter
 
-An IOS stopwatch challange from Flutter Animations Masterclass - Full Course 
+An IOS stopwatch challenge from Flutter Animations Masterclass - Full Course 
 
 What I learned;
 
